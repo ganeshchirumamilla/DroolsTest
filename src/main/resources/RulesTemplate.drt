@@ -1,0 +1,35 @@
+template header
+ID
+CUSTOMER_TYPE
+CUST_YEAR
+DISC
+
+package org.drools.template.jdbc;
+import com.baeldung.drools.model.Customer;
+import com.baeldung.drools.model.Customer.CustomerType;
+dialect "mvel"
+template "disc_rule"
+rule "ge3yrs_@{row.rowNumber}"
+    when
+        $customer : Customer(type==@{CUSTOMER_TYPE} && years>=3)
+    then
+    System.err.println($customer);
+     $customer.discount=@{DISC};
+end
+
+rule "le3Yrs@{row.rowNumber}"
+    when
+        $customer : Customer(type==@{CUSTOMER_TYPE} && years<=3)
+    then
+     System.err.println($customer);
+     $customer.discount=@{DISC};
+end
+
+rule "business@{row.rowNumber}"
+    when
+        $customer : Customer(type==CustomerType.BUSINESS )
+    then
+     System.err.println($customer);
+     $customer.discount=@{DISC};
+end
+end template

@@ -1,0 +1,5 @@
+<kmodule xmlns="jboss.org/kie/6.0.0/kmodule" xmlns:xsi="w3.org/2001/XMLSchema-instance"> 
+    <kbase name="defaultKieBase" default="true" eventProcessingMode="stream" equalsBehavior="identity" packages="*"> 
+      <ksession name="defaultKieSession" type="stateful" default="true" clockType="realtime" scope="javax.enterprise.context.ApplicationScoped"/> 
+<ksession name="defaultStatelessKieSession" type="stateless" default="true" clockType="realtime" scope="javax.enterprise.context.ApplicationScoped"/> </kbase> 
+    </kmodule>
